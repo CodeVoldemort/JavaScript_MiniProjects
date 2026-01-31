@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        /* background-color: ; */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* background:linear-gradient(to right, #16222a, #3a6073); */
+        background: linear-gradient(to right, #636363, #a2ab58);
+    }
+    .counter{
+        height: 100vh;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        background:transparent;
+        height: 30vh;
+        width: 30vw;
+        border: 3px dashed white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    .container div button{
+        height: 3.5rem;
+        width: 3.5rem;
+        background: aliceblue;      
+        color: #16222a;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: bold;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        padding: 0;
+        transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .container div button:hover {
+        background: white;
+        transform: scale(1.08);
+    }
+    .container div button:active {
+        transform: scale(0.95);
+    }
+    .container div{
+        text-align: center;   
+        padding: 1.5rem 2rem;  
+        background: transparent; 
+    }
+    .container div h1{
+        font: bolder;
+        font-size: 5rem;
+        background: transparent;
+        border: none;
+        color: white;
+        margin: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <div class="container">
+            <div>
+                <h1 id="Number">0</h1>
+                <div class="controls">
+                    <button id="decreament">−</button>
+                    <button id="increament">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let count = 0
+        const number = document.getElementById("Number")
+        const increament = document.getElementById("increament")
+        const decreament = document.getElementById("decreament")
+
+        function updateDisplay(){
+            number.innerText = count
+            if(count >= 10){
+                number.style.color = "green"
+            }else{
+                number.style.color = "white"
+            }
+        }
+        increament.addEventListener("click", () => {
+            count++
+            updateDisplay()
+        })
+        decreament.addEventListener("click", () => {
+          if(count > 0){
+              count--
+              updateDisplay()
+            }
+        })
+        
+
+    </script>
+</body>
+</html>
+
